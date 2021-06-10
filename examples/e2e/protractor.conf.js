@@ -15,12 +15,11 @@ exports.config = {
   capabilities: {
     browserName: 'chrome',
     chromeOptions: {
-      args: ['no-sandbox', '--window-size=1920,800', '--headless'],
+      args: ['no-sandbox', '--headless', '--window-size=1920,1080'],
     },
   },
   snapshots: {
-    dir: 'src',
-    update: false
+    dir: 'src'
   },
   directConnect: true,
   SELENIUM_PROMISE_MANAGER: false,
@@ -38,7 +37,7 @@ exports.config = {
     jasmine.getEnv().addReporter(new SpecReporter({
       spec: {
         displayStacktrace: StacktraceOption.PRETTY
-      }
+      } 
     }));
   }
 };

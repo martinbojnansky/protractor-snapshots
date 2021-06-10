@@ -18,6 +18,9 @@ export async function expectSnapshot(
   const snapshotFolder = `${config?.configDir?.replace(/\\/g, '/')}/${
     config.snapshots?.dir || 'snapshots'
   }/${uid}`;
+  // Read npm command argument for snapshot updating. >> npm run e2e --updateSnapshots=true
+  const updateSnapshots =
+    process.env['npm_config_updateSnapshots'] === 'true' ? true : false;
 
   // Resize viewport to screenshot whole page.
   let viewportSize: Size | undefined;
@@ -78,7 +81,7 @@ export async function expectSnapshot(
   fs.writeFileSync(`${snapshotFolder}/diff.png`, PNG.sync.write(diff));
 
   // If update snapshots is configured, override expected image with actual and fail.
-  if (config?.snapshots?.update) {
+  if (updateSnapshots) {
     fs.writeFileSync(`${snapshotFolder}/expected.png`, PNG.sync.write(actual));
     fail(
       `The ${uid} snapshot has been updated and should be re-tested. See ${snapshotFolder}`
@@ -91,7 +94,7 @@ export async function expectSnapshot(
     );
   }
   // Fail if any pixel has changed and update has not been configured.
-  else if (pixelDiffCount && !config?.snapshots?.update) {
+  else if (pixelDiffCount && !updateSnapshots) {
     fail(
       `The ${uid} snapshot has changed. ${pixelDiffCount} pixels does not match. See ${snapshotFolder}`
     );

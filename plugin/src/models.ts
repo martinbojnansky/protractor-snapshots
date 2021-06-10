@@ -4,7 +4,6 @@ export interface ProtractorConfig {
   configDir: string;
   snapshots?: {
     dir?: string;
-    update?: boolean;
     pixelmatch?: PixelmatchOptions;
   };
 }

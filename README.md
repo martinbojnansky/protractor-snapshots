@@ -1,5 +1,5 @@
 # protractor-snapshots
 
-A light-weight [Cypress](https://www.cypress.io/) plugin to perform regression testing.
+A light-weight [Protractor](https://www.protractortest.org/) plugin to perform regression testing in [Angular](https://angular.io/) applications.
 
 ...
