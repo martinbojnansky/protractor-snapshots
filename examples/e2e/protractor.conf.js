@@ -19,7 +19,10 @@ exports.config = {
     },
   },
   snapshots: {
-    dir: 'src'
+    dir: 'src',
+    pixelmatch: {
+      treshold: 0.5
+    }
   },
   directConnect: true,
   SELENIUM_PROMISE_MANAGER: false,
