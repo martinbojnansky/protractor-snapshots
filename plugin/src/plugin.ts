@@ -87,7 +87,7 @@ export async function expectSnapshot(
       `The ${uid} snapshot has been updated and should be re-tested. See ${snapshotFolder}`
     );
   }
-  // Fail if no update is configured and expected snapshot is missing.
+  // Fail if no update is configured and expected image is missing.
   else if (!expected) {
     fail(
       `An expected ${uid} snapshot has not been yet defined. See ${snapshotFolder}`
