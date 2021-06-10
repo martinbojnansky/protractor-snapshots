@@ -1,0 +1,44 @@
+{
+  "name": "protractor-snapshots",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist",
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "compile": "tsc",
+    "watch": "npm run clean && npm run compile -- -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martinbojnansky/protractor-snapshots.git"
+  },
+  "keywords": [
+    "protractor",
+    "testing",
+    "regression",
+    "testing",
+    "e2e",
+    "screenshots",
+    "snapshots"
+  ],
+  "author": "Martin Bojnansky",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/martinbojnansky/protractor-snapshots/issues"
+  },
+  "homepage": "https://github.com/martinbojnansky/protractor-snapshots#readme",
+  "devDependencies": {
+    "@types/jasmine": "^3.7.7",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.12.2",
+    "@types/pixelmatch": "^5.2.3",
+    "protractor": "^7.0.0",
+    "typescript": "^4.3.2"
+  },
+  "dependencies": {
+    "pixelmatch": "^5.2.1"
+  }
+}
