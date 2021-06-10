@@ -1,5 +1,5 @@
 import { browser, logging } from 'protractor';
-import { expectSnapshot } from '../../../plugin/dist/index';
+import { expectSnapshot } from 'protractor-snapshots';
 import { AppPage } from './app.po';
 
 describe('App', () => {
@@ -11,7 +11,8 @@ describe('App', () => {
 
   it('should load', async () => {
     await page.navigateTo();
-    await expectSnapshot('app--loaded', page.getTitle());
+    await expectSnapshot('app/page--loaded', browser);
+    await expectSnapshot('app/title--loaded', page.getTitle());
   });
 
   afterEach(async () => {

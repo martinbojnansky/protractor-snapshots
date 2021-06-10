@@ -1,15 +1,16 @@
 {
   "name": "protractor-snapshots",
   "version": "0.0.1",
-  "description": "",
+  "description": "A light-weight Protractor plugin to perform regression testing in Angular applications.",
   "main": "dist",
   "files": [
     "dist/*"
   ],
   "scripts": {
     "clean": "rimraf dist",
-    "compile": "tsc",
-    "watch": "npm run clean && npm run compile -- -w"
+    "compile": "npm run clean && tsc",
+    "watch": "npm run clean && npm run compile -- -w",
+    "publish-package": "npm run compile && npm publish"
   },
   "repository": {
     "type": "git",
