@@ -15,7 +15,7 @@ exports.config = {
   capabilities: {
     browserName: 'chrome',
     chromeOptions: {
-      args: ['no-sandbox', '--window-size=1920,800'], // '--headless'
+      args: ['no-sandbox', '--window-size=1920,800', '--headless'],
     },
   },
   snapshots: {
