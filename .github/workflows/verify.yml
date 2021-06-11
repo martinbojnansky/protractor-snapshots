@@ -43,5 +43,4 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }} 
       - run: npm ci
-      - run: node node_modules\protractor\bin\webdriver-manager update
       - run: npm run e2e

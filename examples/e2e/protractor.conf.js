@@ -13,23 +13,27 @@ exports.config = {
     './src/**/*.e2e-spec.ts'
   ],
   multiCapabilities: [
-    { 
-      browserName: 'firefox' ,
-      'moz:firefoxOptions': {
-        args: ['--headless']
-      }
-    }, // In case firefox does not start, try >> node node_modules\protractor\bin\webdriver-manager update
-    // { browserName: 'chrome',
-    //   chromeOptions: {
-    //     // Window size cannot be changed in headless mode. See https://www.protractortest.org/#/browser-setup#using-headless-chrome
-    //     args: ['no-sandbox', '--headless', "--disable-gpu", '--window-size=1920,4320'],
+    // { 
+    //   browserName: 'firefox' ,
+    //   firefoxOptions: {
+    //     args: ['--headless', '--window-size=1920,4320']
+    //   },
+    //   'moz:firefoxOptions': {
+    //     args: ['--headless']
     //   }
-    // }
+    // }, // In case firefox does not start, try >> node node_modules\protractor\bin\webdriver-manager update
+    { 
+      browserName: 'chrome',
+      chromeOptions: {
+        // Window size cannot be changed in headless mode. See https://www.protractortest.org/#/browser-setup#using-headless-chrome
+        args: ['no-sandbox', '--headless', "--disable-gpu", '--window-size=1920,4320'],
+      }
+    }
   ],
   snapshots: {
     dir: 'src',
     pixelmatch: {
-      threshold: 1
+      threshold: 0.1
     }
   },
   directConnect: true,
