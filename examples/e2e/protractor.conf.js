@@ -22,7 +22,7 @@ exports.config = {
   snapshots: {
     dir: 'src',
     pixelmatch: {
-      treshold: 0.1
+      treshold: 0.3
     }
   },
   directConnect: true,

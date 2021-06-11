@@ -23,7 +23,7 @@ describe('App', () => {
   });
 
   it('should display svg', async () => {
-    await expectSnapshot('app/svg--ok', page.getSvg());
+    await expectSnapshot('app/svg', page.getSvg());
   });
 
   it('should display scrollable', async () => {
