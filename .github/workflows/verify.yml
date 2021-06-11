@@ -27,7 +27,7 @@ jobs:
       - run: npm run compile
 
   verify_examples:
-    runs-on: windows-latest
+    runs-on: macos-latest
     defaults:
       run:
         working-directory: examples
