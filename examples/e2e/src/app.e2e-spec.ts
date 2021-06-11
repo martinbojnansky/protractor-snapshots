@@ -1,4 +1,4 @@
-import { browser, logging } from 'protractor';
+import { browser } from 'protractor';
 import { expectSnapshot } from 'protractor-snapshots';
 import { AppPage } from './app.po';
 
@@ -29,15 +29,5 @@ describe('App', () => {
   it('should display scrollable', async () => {
     await expectSnapshot('app/scrollable-wrapper', page.getScrollableWrapper());
     // await expectSnapshot('app/scrollable-content', page.getScrollableContent());
-  });
-
-  afterEach(async () => {
-    // Assert that there are no errors emitted from the browser
-    const logs = await browser.manage().logs().get(logging.Type.BROWSER);
-    expect(logs).not.toContain(
-      jasmine.objectContaining({
-        level: logging.Level.SEVERE,
-      } as logging.Entry)
-    );
   });
 });
