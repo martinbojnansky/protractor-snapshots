@@ -6,6 +6,22 @@ export class AppPage {
   }
 
   getTitle(): ElementFinder {
-    return element(by.css('h2'));
+    return element(by.id('title'));
+  }
+
+  getParagraph(): ElementFinder {
+    return element(by.id('paragraph'));
+  }
+
+  getSvg(): ElementFinder {
+    return element(by.id('svg'));
+  }
+
+  getScrollableWrapper(): ElementFinder {
+    return element(by.id('scrollable'));
+  }
+
+  getScrollableContent(): ElementFinder {
+    return this.getScrollableWrapper().element(by.tagName('p'));
   }
 }

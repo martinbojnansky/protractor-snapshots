@@ -5,14 +5,30 @@ import { AppPage } from './app.po';
 describe('App', () => {
   let page: AppPage;
 
-  beforeEach(() => {
+  beforeAll(async () => {
     page = new AppPage();
+    await page.navigateTo();
   });
 
-  it('should load', async () => {
-    await page.navigateTo();
-    await expectSnapshot('app/page--loaded', browser);
-    await expectSnapshot('app/title--loaded', page.getTitle());
+  it('should display page', async () => {
+    await expectSnapshot('app/page', browser);
+  });
+
+  it('should display title', async () => {
+    await expectSnapshot('app/title', page.getTitle());
+  });
+
+  it('should display paragraph', async () => {
+    await expectSnapshot('app/paragraph', page.getParagraph());
+  });
+
+  it('should display svg', async () => {
+    await expectSnapshot('app/svg--ok', page.getSvg());
+  });
+
+  it('should display scrollable', async () => {
+    await expectSnapshot('app/scrollable-wrapper', page.getScrollableWrapper());
+    // await expectSnapshot('app/scrollable-content', page.getScrollableContent());
   });
 
   afterEach(async () => {

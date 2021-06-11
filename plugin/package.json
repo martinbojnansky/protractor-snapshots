@@ -1,6 +1,6 @@
 {
   "name": "protractor-snapshots",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A light-weight Protractor plugin to perform regression testing in Angular applications.",
   "main": "dist",
   "files": [

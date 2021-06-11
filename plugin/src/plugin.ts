@@ -1,12 +1,6 @@
 import pixelmatch from 'pixelmatch';
-import {
-  browser,
-  by,
-  element,
-  ElementFinder,
-  ProtractorBrowser,
-} from 'protractor';
-import { ProtractorConfig, Size } from './models';
+import { browser, ElementFinder, ProtractorBrowser } from 'protractor';
+import { ProtractorConfig } from './models';
 import fs = require('fs');
 const PNG = require('pngjs').PNG;
 
@@ -22,14 +16,6 @@ export async function expectSnapshot(
   const updateSnapshots =
     process.env['npm_config_updateSnapshots'] === 'true' ? true : false;
 
-  // Resize viewport to screenshot whole page.
-  let viewportSize: Size | undefined;
-  if (finder === browser) {
-    viewportSize = await browser.driver.manage().window().getSize();
-    const pageContentSize = await element(by.tagName('html')).getSize();
-    await resizeBrowser(pageContentSize);
-  }
-
   // Make sure all necessary directories are created.
   if (!fs.existsSync(snapshotFolder)) {
     fs.mkdirSync(snapshotFolder, { recursive: true });
@@ -41,11 +27,6 @@ export async function expectSnapshot(
     await finder.takeScreenshot(),
     'base64'
   );
-
-  // Reset original viewport size.
-  if (finder === browser && viewportSize) {
-    await resizeBrowser(viewportSize);
-  }
 
   // Re-read image from file-system in order to get PNG instance.
   const actual = PNG.sync.read(fs.readFileSync(`${snapshotFolder}/actual.png`));
@@ -103,8 +84,4 @@ export async function expectSnapshot(
   else {
     expect(true).toBe(true);
   }
-}
-
-export async function resizeBrowser(size: Size): Promise<void> {
-  await browser.driver.manage().window().setSize(size.width, size.height);
 }

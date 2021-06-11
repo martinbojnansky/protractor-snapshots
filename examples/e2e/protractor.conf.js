@@ -15,13 +15,14 @@ exports.config = {
   capabilities: {
     browserName: 'chrome',
     chromeOptions: {
-      args: ['no-sandbox', '--headless', '--window-size=1920,1080'],
+      // Window size cannot be changed in headless mode. See https://www.protractortest.org/#/browser-setup#using-headless-chrome
+      args: ['no-sandbox', '--headless', "--disable-gpu", '--window-size=1920,4320'],
     },
   },
   snapshots: {
     dir: 'src',
     pixelmatch: {
-      treshold: 0.5
+      treshold: 0.1
     }
   },
   directConnect: true,
